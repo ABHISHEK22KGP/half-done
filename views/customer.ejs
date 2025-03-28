@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <style>
+        .customer-div {
+            background-color: #f8f9fa; /* Light background */
+            border: 2px solid #007bff; /* Blue border */
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .customer-div:hover {
+            transform: scale(1.02);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .customer-div p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .customer-div strong {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Details</h1>
+
+    <% customers.forEach(customer => { %>
+        <div class="customer-div">
+            <p><strong>Name:</strong> <%= customer.name %></p>
+            <p><strong>Phone:</strong> <%= customer.phoneNumber %></p>
+            <p><strong>Details:</strong> <%= customer.details %></p>
+        </div>
+    <% }) %>
+
+</body>
+</html>
