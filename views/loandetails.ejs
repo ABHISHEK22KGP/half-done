@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Details</title>
+    <title>Document</title>
     <style>
-        .customer-div {
+        .loansdetails-div {
             background-color: #f8f9fa; /* Light background */
             border: 2px solid #007bff; /* Blue border */
             padding: 15px;
@@ -16,38 +16,37 @@
             transition: transform 0.2s ease-in-out;
         }
 
-        .customer-div:hover {
+        .loansdetails-div:hover {
             transform: scale(1.02);
             box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .customer-div p {
+        .loansdetails-div p {
             margin: 5px 0;
             font-size: 16px;
             color: #333;
         }
 
-        .customer-div strong {
+        .loansdetails-div strong {
             color: #007bff;
         }
     </style>
 </head>
 <body>
-    <h1>Customer Details</h1>
-
-    <% customers.forEach(customer => { %>
-        <div class="customer-div" onclick="viewCustomer('<%= encodeURIComponent(customer.name) %>', '<%= encodeURIComponent(customer.phoneNumber) %>')">
-            <p><strong>Name:</strong> <%= customer.name %></p>
-            <p><strong>Phone:</strong> <%= customer.phoneNumber %></p>
-            <p><strong>Details:</strong> <%= customer.details %></p>
+    <% rate.rates.forEach(rate => { %>
+        <div class="loansdetails-div">
+            <div class="rate-details">
+                <p><strong>Principal:</strong> ₹<%= rate.principal %></p>
+                <p><strong>Date Taken:</strong> <%= new Date(rate.dateTaken).toLocaleDateString() %></p>
+                <p><strong>Interest:</strong> ₹<%= rate.interest %></p>
+                <p><strong>Date Difference:</strong> <%= rate.date_diff %></p>
+            </div>
         </div>
     <% }) %>
-
     <script>
-        function viewCustomer(name, phone) {
-            window.location.href = `/customer/${name}/${phone}`; // Redirect to backend
-        }
+        //js
     </script>
-
 </body>
 </html>
+
+
